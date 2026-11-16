@@ -1,0 +1,1139 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#376a90" />
+  <title>Spectrum HUB v2.5</title>
+  <link rel="stylesheet" href="style.css?v=2500-consistent-ribbons" />
+</head>
+<body class="integrated-hub staff-mode">
+  <svg class="lucide-sprite" aria-hidden="true" focusable="false">
+    <symbol id="icon-layout-dashboard" viewBox="0 0 24 24"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></symbol>
+    <symbol id="icon-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="icon-circle-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></symbol>
+    <symbol id="icon-calendar-days" viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/></symbol>
+    <symbol id="icon-message-square-text" viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/><path d="M8 8h8"/><path d="M8 12h6"/></symbol>
+    <symbol id="icon-star" viewBox="0 0 24 24"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></symbol>
+    <symbol id="icon-notebook-pen" viewBox="0 0 24 24"><path d="M13.4 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7.4"/><path d="M2 6h4"/><path d="M2 10h4"/><path d="M2 14h4"/><path d="M2 18h4"/><path d="M21.38 5.62a2.12 2.12 0 0 0-3-3L11 10l-1 4 4-1z"/></symbol>
+    <symbol id="icon-lock-keyhole" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1"/></symbol>
+    <symbol id="icon-luggage" viewBox="0 0 24 24"><rect x="5" y="6" width="14" height="15" rx="2"/><path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M9 10v7M15 10v7M9 21v1M15 21v1"/></symbol>
+    <symbol id="icon-party-popper" viewBox="0 0 24 24"><path d="m5.8 11.3 6.9 6.9L3 21l2.8-9.7Z"/><path d="M10.8 12.2c-.7-2.6.6-5.4 3.4-6.2M12.9 14.6c2.8.6 5.5-.8 6.2-3.5"/><path d="m16 3 .5 2M21 7l-2 .5M10 4l1 2M20 16l-2-1"/><circle cx="20" cy="3" r="1"/></symbol>
+    <symbol id="icon-calendar-check" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M8 2v4M16 2v4M3 10h18m-12 6 2 2 4-4"/></symbol>
+    <symbol id="icon-building-2" viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18"/><path d="M6 12H4a2 2 0 0 0-2 2v8h20v-8a2 2 0 0 0-2-2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></symbol>
+    <symbol id="icon-bell" viewBox="0 0 24 24"><path d="M10.27 21a2 2 0 0 0 3.46 0"/><path d="M3.26 15.33A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.67C19.41 13.83 18 12.24 18 8A6 6 0 0 0 6 8c0 4.24-1.41 5.83-2.74 7.33"/></symbol>
+    <symbol id="icon-log-out" viewBox="0 0 24 24"><path d="M10 17l5-5-5-5"/><path d="M15 12H3"/><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/></symbol>
+    <symbol id="icon-settings" viewBox="0 0 24 24"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.38a2 2 0 0 0-.73-2.73l-.15-.09a2 2 0 0 1-1-1.74v-.51a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="icon-panel-left-close" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/><path d="m16 15-3-3 3-3"/></symbol>
+    <symbol id="icon-clock-3" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16.5 12"/></symbol>
+    <symbol id="icon-user-round-check" viewBox="0 0 24 24"><path d="M2 21a8 8 0 0 1 13.29-6"/><circle cx="10" cy="8" r="5"/><path d="m16 19 2 2 4-4"/></symbol>
+    <symbol id="icon-heart-handshake" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7z"/><path d="m12 5-3 3 2 2 3-3 3 3"/></symbol>
+    <symbol id="icon-calendar-clock" viewBox="0 0 24 24"><path d="M21 7.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h8"/><circle cx="17" cy="17" r="5"/><path d="M17 14.5V17l1.5 1"/></symbol>
+    <symbol id="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.42 1.42"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.42"/></symbol>
+    <symbol id="icon-pin" viewBox="0 0 24 24"><path d="M12 17v5"/><path d="M5 17h14"/><path d="m6 3 1 7-2 2h14l-2-2 1-7z"/></symbol>
+    <symbol id="icon-grip-vertical" viewBox="0 0 24 24"><circle cx="9" cy="5" r="1"/><circle cx="9" cy="12" r="1"/><circle cx="9" cy="19" r="1"/><circle cx="15" cy="5" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="19" r="1"/></symbol>
+    <symbol id="icon-refresh-cw" viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 1-15.22 6.48L3 16"/><path d="M3 21v-5h5"/><path d="M3 12A9 9 0 0 1 18.22 5.52L21 8"/><path d="M21 3v5h-5"/></symbol>
+    <symbol id="icon-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="icon-archive" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="4" rx="1"/><path d="M5 8v12h14V8"/><path d="M10 12h4"/></symbol>
+    <symbol id="icon-loader-circle" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-6.22-8.56"/></symbol>
+    <symbol id="icon-list-checks" viewBox="0 0 24 24"><path d="m3 7 2 2 4-4"/><path d="m3 17 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></symbol>
+    <symbol id="icon-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+  </svg>
+  <section class="login-screen login-screen-art" id="loginScreen">
+    <div class="login-art-layer" aria-hidden="true">
+      <span class="login-art-circle login-art-circle-large"></span>
+      <span class="login-art-circle login-art-circle-small"></span>
+      <img class="login-art-swoosh" src="assets/login-swoosh.svg" alt="" />
+    </div>
+    <div class="login-shell compact-login-shell">
+      <img class="login-logo" src="assets/spectrum-hub-logo.svg" alt="Spectrum HUB" />
+      <div class="login-panel-card">
+        <form id="loginForm" class="login-inline-form compact-login-form">
+          <label>Naam
+            <select id="loginRole" aria-label="Naam">
+              <optgroup label="Mediënten">
+                <option value="client-mm">Maarten</option>
+              </optgroup>
+              <optgroup label="Begeleiding">
+                <option value="staff-mm">Lindsay</option>
+                <option value="staff-it">Marjolaine</option>
+              </optgroup>
+            </select>
+          </label>
+          <label>Wachtwoord<input id="loginPassword" type="password" value="spectrum" required /></label>
+          <fieldset class="mood-checkin" id="loginMoodFieldset">
+            <legend>Hoe ga je de dag in? <span class="required-note">Verplicht</span></legend>
+            <div class="mood-picker" id="loginMoodPicker" role="radiogroup" aria-label="Hoe ga je de dag in?">
+              <button type="button" class="mood-option" data-mood-target="loginMood" data-mood="1" aria-label="Heel zwaar" title="Heel zwaar">😞</button>
+              <button type="button" class="mood-option" data-mood-target="loginMood" data-mood="2" aria-label="Niet zo goed" title="Niet zo goed">🙁</button>
+              <button type="button" class="mood-option" data-mood-target="loginMood" data-mood="3" aria-label="Neutraal" title="Neutraal">😐</button>
+              <button type="button" class="mood-option" data-mood-target="loginMood" data-mood="4" aria-label="Goed" title="Goed">🙂</button>
+              <button type="button" class="mood-option" data-mood-target="loginMood" data-mood="5" aria-label="Heel goed" title="Heel goed">😄</button>
+            </div>
+            <input id="loginMood" type="hidden" value="" />
+          </fieldset>
+          <button class="primary-button login-main-button" id="loginSubmitButton" type="submit">Inloggen</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  <div class="app-shell" id="appShell">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-scroll-area" id="sidebarScrollArea">
+      <div class="brand-row">
+        <button class="sidebar-brand" type="button" data-open-page="dashboard" aria-label="Spectrum Hub-overzicht openen">
+          <img class="sidebar-logo sidebar-logo-full" src="assets/spectrum-hub-logo.svg" alt="Spectrum HUB" />
+          <span class="sidebar-logo-mark" aria-hidden="true"></span>
+        </button>
+      </div>
+
+      <nav class="main-nav" aria-label="Hoofdnavigatie">
+        <button class="nav-item active" data-page="dashboard" aria-current="page">
+          <span class="nav-icon"><svg class="lucide-icon" aria-hidden="true"><use href="#icon-layout-dashboard"></use></svg></span><span class="nav-label">Dashboard</span>
+        </button>
+        <button class="nav-item staff-only" data-page="clock" id="clientsNavButton">
+          <span class="nav-icon"><svg class="lucide-icon" aria-hidden="true"><use href="#icon-users"></use></svg></span><span class="nav-label">Mediënten</span>
+        </button>
+        <button class="nav-item" data-page="messages">
+          <span class="nav-icon"><svg class="lucide-icon" aria-hidden="true"><use href="#icon-message-square-text"></use></svg></span><span class="nav-label">Mededelingen</span>
+        </button>
+        <button class="nav-item client-only" data-page="diary">
+          <span class="nav-icon"><svg class="lucide-icon" aria-hidden="true"><use href="#icon-notebook-pen"></use></svg></span><span class="nav-label">Mijn Dagboek</span>
+        </button>
+        <button class="nav-item" data-page="goals">
+          <span class="nav-icon"><svg class="lucide-icon" aria-hidden="true"><use href="#icon-target"></use></svg></span><span class="nav-label">Mijn Doelen</span>
+        </button>
+        <button class="nav-item" data-page="tasks">
+          <span class="nav-icon"><svg class="lucide-icon" aria-hidden="true"><use href="#icon-list-checks"></use></svg></span><span class="nav-label">Planbord</span>
+        </button>
+        <button class="nav-item" data-page="agenda" id="calendarNavButton">
+          <span class="nav-icon"><svg class="lucide-icon" aria-hidden="true"><use href="#icon-calendar-days"></use></svg></span><span class="nav-label">Kalender</span>
+        </button>
+        <button class="nav-item" data-page="rooms" id="roomsNavButton">
+          <span class="nav-icon"><svg class="lucide-icon" aria-hidden="true"><use href="#icon-calendar-days"></use></svg></span><span class="nav-label">Rooster</span>
+        </button>
+        <button class="nav-item staff-only staff-sprintreviews-only" data-page="sprintreviews" id="sprintReviewsNavButton">
+          <span class="nav-icon"><svg class="lucide-icon" aria-hidden="true"><use href="#icon-star"></use></svg></span><span class="nav-label">Sprintreviews</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-spacer"></div>
+
+      <button class="nav-item client-only notifications-button sidebar-utility" id="notificationsButton" type="button" aria-label="Meldingen openen">
+        <span class="nav-icon"><svg class="lucide-icon" aria-hidden="true"><use href="#icon-bell"></use></svg></span><span class="nav-label">Meldingen</span><span class="notification-badge hidden" id="notificationBadge" aria-label="0 nieuwe meldingen">0</span>
+      </button>
+
+      <div class="role-switcher-wrap live-demo-role-switcher" aria-hidden="true">
+        <label for="roleSelect" id="roleSwitcherLabel">Demo-profiel</label>
+        <select id="roleSelect">
+          <option value="client-mm">Multimedia-mediënt</option>
+          <option value="staff-mm">Multimedia-begeleider</option>
+          <option value="staff-it">IT-begeleider</option>
+        </select>
+      </div>
+
+      <button class="profile-card profile-link" id="profileButton" type="button" aria-label="Mijn profiel openen">
+        <div class="avatar" aria-hidden="true">M</div>
+        <div class="profile-copy">
+          <strong>Maarten</strong>
+          <small id="profileRole">Multimedia-mediënt</small>
+        </div>
+        <span class="status-dot" title="Aanwezig"></span>
+      </button>
+      <button class="nav-item logout-link" id="logoutButton"><span class="nav-icon"><svg class="lucide-icon" aria-hidden="true"><use href="#icon-log-out"></use></svg></span><span class="nav-label">Uitloggen</span></button>
+
+      <button class="nav-item settings-link" data-page="settings">
+        <span class="nav-icon"><svg class="lucide-icon" aria-hidden="true"><use href="#icon-settings"></use></svg></span><span class="nav-label">Instellingen</span>
+      </button>
+      </div>
+      <div class="sidebar-scroll-cue" id="sidebarScrollCue" aria-hidden="true"><span>Scroll voor meer</span><b>↓</b></div>
+    </aside>
+
+    <main class="main-content">
+      <button class="icon-button content-sidebar-toggle" id="sidebarToggle" aria-label="Menu inklappen" title="Menu inklappen">
+        <svg class="lucide-icon" aria-hidden="true"><use href="#icon-panel-left-close"></use></svg>
+      </button>
+      <section class="page active" id="page-dashboard" data-page-panel="dashboard">
+        <section class="staff-dashboard" aria-label="Begeleidingsoverzicht">
+          <header class="page-header dashboard-page-header staff-dashboard-header">
+            <div>
+              <p class="eyebrow">Begeleidersomgeving</p>
+              <h1>Dashboard</h1>
+              <p class="page-intro dashboard-greeting" id="staffDashboardGreeting">Goedemorgen, Lindsay</p>
+              <p class="dashboard-secondary-intro" id="staffDashboardIntro">Dit vraagt vandaag als eerste je aandacht.</p>
+            </div>
+            <div class="header-controls welcome-actions"><button class="primary-button" id="quickNewCommunication">Nieuwe mededeling</button></div>
+          </header>
+          <section class="staff-summary-grid">
+            <button class="staff-summary-card" data-open-page="clock"><span>Mediënten aanwezig</span><strong id="staffPresentCount">0</strong><small>Bekijk aanwezigheid →</small></button>
+            <button class="staff-summary-card yellow" data-open-page="diary"><span>Nieuwe dagverslagen</span><strong id="staffReportCount">0</strong><small>Bekijk verslagen →</small></button>
+            <button class="staff-summary-card purple" data-open-page="tasks"><span>Weekplanning</span><strong id="staffSignalCount">5 dagen</strong><small>Open planning →</small></button>
+          </section>
+          <section class="staff-dashboard-grid">
+            <article class="panel staff-dashboard-panel"><div class="panel-heading-row"><div><p class="eyebrow">Vandaag</p><h2>Mediënten</h2></div><button class="text-button" data-open-page="clock">Volledig overzicht →</button></div><div id="staffTodayClients" class="staff-list"></div></article>
+            <article class="panel staff-dashboard-panel"><div class="panel-heading-row"><div><p class="eyebrow">Communicatie</p><h2>Gepland en recent</h2></div><button class="text-button" data-open-page="messages">Berichten beheren →</button></div><div id="staffPlannedContent" class="staff-list"></div></article>
+            <article class="panel staff-dashboard-panel staff-signals-panel"><div class="panel-heading-row"><div><p class="eyebrow">Rustige signalen</p><h2>Hulp/overleg nodig</h2></div><button class="text-button" data-open-page="tasks">Alle signalen →</button></div><p class="panel-intro">Dit is een geheugensteun uit de takenborden, geen digitale wachtrij.</p><div id="staffSignalsPreview" class="staff-list"></div></article>
+          </section>
+        </section>
+        <div class="legacy-dashboard">
+        <header class="page-header dashboard-page-header design-dashboard-header">
+          <div>
+            <p class="eyebrow">Persoonlijke omgeving</p>
+            <h1>Dashboard</h1>
+            <p class="page-intro" id="dashboardGreeting">Goedemorgen, Maarten</p>
+          </div>
+          <div class="header-controls welcome-actions">
+            <button class="secondary-button" id="editDashboardButton">Dashboard aanpassen</button>
+            <button class="secondary-button hidden" id="manageWidgetsButton">Widgets beheren</button>
+            <button class="ghost-button hidden" id="resetDemoButton">Demo resetten</button>
+          </div>
+        </header>
+
+        <section class="summary-grid logic-only-summary" id="summaryGrid" aria-hidden="true">
+          <article class="summary-card primary-summary">
+            <div class="summary-icon"><svg class="lucide-icon" aria-hidden="true"><use href="#icon-clock-3"></use></svg></div>
+            <div>
+              <span id="clockStatusLabel">Niet ingeklokt</span>
+              <strong id="clockStatusValue">—</strong>
+            </div>
+            <button class="primary-button" id="clockButton">Inklokken</button>
+          </article>
+          <article class="summary-card interactive-summary" id="presentSummaryCard" role="button" tabindex="0" aria-label="Aanwezigheid bekijken">
+            <div class="summary-icon soft-blue"><svg class="lucide-icon" aria-hidden="true"><use href="#icon-user-round-check"></use></svg></div>
+            <div><span id="presentSummaryLabel">Multimedia-begeleiding</span><strong id="presentCount">2 van 3</strong></div>
+          </article>
+          <article class="summary-card warm interactive-summary" id="staffSummaryCard" role="button" tabindex="0" aria-label="Aanwezige begeleiding bekijken">
+            <div class="summary-icon soft-yellow"><svg class="lucide-icon" aria-hidden="true"><use href="#icon-heart-handshake"></use></svg></div>
+            <div><span id="staffSummaryLabel">Procesbegeleiding</span><strong id="staffCount">2 van 3</strong></div>
+          </article>
+          <article class="summary-card lavender interactive-summary next-appointment-card" id="nextAppointmentCard" role="button" tabindex="0" aria-label="Volgende afspraak bekijken">
+            <div class="summary-icon soft-purple"><svg class="lucide-icon" aria-hidden="true"><use href="#icon-calendar-clock"></use></svg></div>
+            <div class="next-appointment-copy">
+              <span id="roleSummaryLabel">Volgende afspraak</span>
+              <strong id="roleSummaryValue">Agenda bekijken</strong>
+              <small id="roleSummaryMeta">Klik om je kalender te openen</small>
+            </div>
+            <span class="summary-chevron"><svg class="lucide-icon" aria-hidden="true"><use href="#icon-chevron-right"></use></svg></span>
+          </article>
+        </section>
+
+        <section class="staff-local-widgets staff-only" id="staffRoomSnapshot" aria-label="Mediënten per gekoppeld lokaal"></section>
+
+        <section class="widget-grid" id="widgetGrid" aria-label="Dashboard widgets">
+
+          <article class="widget tasks-widget" data-widget-id="tasks" draggable="true">
+            <header class="widget-header">
+              <div><p class="eyebrow">Werkoverzicht</p><h2>Planbord</h2></div>
+              <div class="widget-actions">
+                <button class="icon-button pin-button" data-pin-widget="tasks" title="Pinnen" aria-label="Widget pinnen"><svg class="lucide-icon" aria-hidden="true"><use href="#icon-pin"></use></svg></button>
+                <button class="icon-button drag-hint" title="Versleep widget" aria-label="Widget verslepen"><svg class="lucide-icon" aria-hidden="true"><use href="#icon-grip-vertical"></use></svg></button>
+              </div>
+            </header>
+            <div class="kanban-board" id="dashboardKanban"></div><div id="pb2DashboardColumns" class="pb2-dashboard-columns" aria-live="polite"><p class="pb2-empty">Kies in Planbord 2.0 welke kolommen op het dashboard verschijnen.</p></div>
+            <div class="widget-footer"><button class="text-button widget-more" data-open-page="tasks">Naar Planbord →</button><button class="text-button tasks-widget-link" data-open-page="tasks">Naar Planbord →</button></div>
+          </article>
+
+          <article class="widget weather-widget" data-widget-id="weather" draggable="true">
+            <header class="widget-header">
+              <div><p class="eyebrow">Buiten</p><h2>Weer in Breda</h2></div>
+              <div class="widget-actions">
+                <button class="icon-button" id="refreshWeatherButton" title="Weer vernieuwen" aria-label="Weer vernieuwen"><svg class="lucide-icon" aria-hidden="true"><use href="#icon-refresh-cw"></use></svg></button>
+                <button class="icon-button pin-button" data-pin-widget="weather" title="Pinnen" aria-label="Widget pinnen"><svg class="lucide-icon" aria-hidden="true"><use href="#icon-pin"></use></svg></button>
+                <button class="icon-button drag-hint" title="Versleep widget" aria-label="Widget verslepen"><svg class="lucide-icon" aria-hidden="true"><use href="#icon-grip-vertical"></use></svg></button>
+              </div>
+            </header>
+            <div class="weather-content" id="weatherContent" aria-live="polite">
+              <div class="weather-loading">
+                <span class="weather-loading-icon"><svg class="lucide-icon" aria-hidden="true"><use href="#icon-loader-circle"></use></svg></span>
+                <strong>Weergegevens laden…</strong>
+                <small>Internetverbinding nodig voor live informatie.</small>
+              </div>
+            </div>
+            <div class="weather-footer">
+              <span id="weatherUpdated">Locatie: Breda</span>
+              <a href="https://www.buienradar.nl/nederland/neerslag/buienradar/verwachting" target="_blank" rel="noopener">Volledige radar openen ↗</a>
+            </div>
+          </article>
+
+          <article class="widget attendance-widget" id="attendanceWidget" data-widget-id="attendance" draggable="true">
+            <header class="widget-header">
+              <div><p class="eyebrow">Aanwezigheid</p><h2 id="attendanceWidgetTitle">Begeleiding aanwezig</h2></div>
+              <div class="widget-actions">
+                <button class="icon-button pin-button" data-pin-widget="attendance" title="Pinnen" aria-label="Widget pinnen"><svg class="lucide-icon" aria-hidden="true"><use href="#icon-pin"></use></svg></button>
+                <button class="icon-button drag-hint" title="Versleep widget" aria-label="Widget verslepen"><svg class="lucide-icon" aria-hidden="true"><use href="#icon-grip-vertical"></use></svg></button>
+              </div>
+            </header>
+            <div class="people-list widget-preview-list" id="attendanceList"></div>
+          </article>
+
+          <article class="widget" data-widget-id="messages" draggable="true">
+            <header class="widget-header">
+              <div><p class="eyebrow">Communicatie</p><h2>Mededelingen</h2></div>
+              <div class="widget-actions">
+                <button class="icon-button pin-button" data-pin-widget="messages" title="Pinnen" aria-label="Widget pinnen"><svg class="lucide-icon" aria-hidden="true"><use href="#icon-pin"></use></svg></button>
+                <button class="icon-button drag-hint" title="Versleep widget" aria-label="Widget verslepen"><svg class="lucide-icon" aria-hidden="true"><use href="#icon-grip-vertical"></use></svg></button>
+              </div>
+            </header>
+            <div class="compact-list widget-preview-list" id="recentMessages"></div>
+            <div class="widget-footer"><button class="text-button" data-open-page="messages">Alle mededelingen →</button></div>
+          </article>
+
+          <article class="widget" data-widget-id="diary" draggable="true">
+            <header class="widget-header">
+              <div><p class="eyebrow">Reflectie</p><h2>Laatste dagboeknotitie</h2></div>
+              <div class="widget-actions">
+                <button class="icon-button pin-button" data-pin-widget="diary" title="Pinnen" aria-label="Widget pinnen"><svg class="lucide-icon" aria-hidden="true"><use href="#icon-pin"></use></svg></button>
+                <button class="icon-button drag-hint" title="Versleep widget" aria-label="Widget verslepen"><svg class="lucide-icon" aria-hidden="true"><use href="#icon-grip-vertical"></use></svg></button>
+              </div>
+            </header>
+            <div id="latestDiary" class="diary-preview"></div>
+            <button class="text-button" data-open-page="diary">Naar dagboek →</button>
+          </article>
+
+
+        </section>
+        </div>
+      </section>
+
+      <section class="page" id="page-clock" data-page-panel="clock">
+        <header class="page-header"><div><p class="eyebrow">Overzicht &amp; aanwezigheid</p><h1>Mediënten</h1><p class="page-intro">Bekijk alle mediënten en filter op lokaal of aanwezigheid.</p></div></header>
+        <div class="content-grid two-column">
+          <article class="panel clock-panel staff-self-clock">
+            <div class="big-clock" id="bigClock">--:--</div>
+            <p id="clockPageStatus">Je bent niet ingeklokt.</p>
+            <button class="primary-button large" id="clockPageButton">Inklokken</button>
+          </article>
+          <article class="panel">
+            <h2 id="fullAttendanceTitle">Begeleiding vandaag</h2>
+            <div class="client-tools hidden" id="clientTools">
+              <label>Zoeken<input id="clientSearch" type="search" placeholder="Zoek op naam" /></label>
+              <label>Weergave<select id="clientFilter"><option value="all" selected>Alle mediënten</option><option value="local">Mijn lokalen (dit dagdeel)</option><option value="present">Vandaag aanwezig</option></select></label>
+              <label class="client-fullname-toggle"><input id="clientFullNames" type="checkbox" /> Volledige achternamen</label>
+              <button id="newClientButton" class="primary-button" type="button">+ Nieuwe mediënt</button>
+            </div>
+            <div class="people-list roomy" id="fullAttendanceList"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="page staff-only" id="page-client-detail" data-page-panel="client-detail">
+        <header class="page-header client-detail-page-header">
+          <div class="client-detail-heading">
+            <button class="text-button back-button" id="clientDetailBack" type="button">← Terug naar mediënten</button>
+            <p class="eyebrow">Mediëntoverzicht</p>
+            <h1 id="clientDetailTitle">Mediënt</h1>
+            <p class="page-intro" id="clientDetailSubtitle">Afdeling en begeleiding</p>
+          </div>
+          <div class="header-controls client-detail-actions">
+            <button class="danger-button" id="clientDetailDelete" type="button">Mediënt verwijderen</button>
+            <button class="primary-button" id="clientDetailEditProfile" type="button">Gegevens aanpassen</button>
+          </div>
+        </header>
+
+        <article class="panel client-detail-hero">
+          <div class="profile-hero-avatar" id="clientDetailAvatar" aria-hidden="true">M</div>
+          <div class="client-detail-identity"><strong id="clientDetailName">Mediënt</strong><span id="clientDetailDepartment">Multimedia</span></div>
+          <div class="client-detail-facts" id="clientDetailFacts"></div>
+        </article>
+
+        <div class="client-access-note hidden" id="clientDetailAccessNote"></div>
+        <nav class="client-detail-tabs" aria-label="Mediëntgegevens">
+          <button class="active" type="button" data-client-detail-tab="overview">Overzicht</button>
+          <button type="button" data-client-detail-tab="tasks">Taken</button>
+          <button type="button" data-client-detail-tab="diary">Dagverslagen</button>
+          <button type="button" data-client-detail-tab="roster">Rooster</button>
+          <button type="button" data-client-detail-tab="goals">Doelen</button>
+        </nav>
+        <section id="clientDetailContent" class="client-detail-content"></section>
+      </section>
+
+      <section class="page" id="page-diary" data-page-panel="diary">
+        <header class="page-header">
+          <div><p class="eyebrow">Terugkijken</p><h1>Dagverslagen</h1><p class="page-intro">Recente verslagen van alle mediënten.</p></div>
+          <button class="primary-button" id="newDiaryButton">Nieuwe notitie</button>
+        </header>
+        <div class="timeline" id="diaryTimeline"></div>
+      </section>
+
+      <section class="page" id="page-messages" data-page-panel="messages">
+        <header class="page-header combined-message-header"><div><p class="eyebrow" id="messagesEyebrow">Voor jou</p><h1 id="messagesPageTitle">Mededelingen</h1><p class="page-intro" id="messagesPageIntro">Alle relevante mededelingen rustig en volledig onder elkaar.</p></div><div class="header-controls"><select id="messageFilter" aria-label="Mededelingen filteren"><option value="active">Actief</option><option value="scheduled">Gepland</option><option value="expired">Verlopen</option><option value="all">Alles</option></select><button class="primary-button staff-only" id="addCommunicationButton">Nieuwe mededeling</button></div></header>
+        <section class="announcements-column announcements-full-width">
+          <div class="section-ribbon yellow-ribbon"><span>Nieuwe &amp; recente mededelingen</span></div>
+          <div class="cards-list" id="messagesPageList"></div>
+        </section>
+      </section>
+
+      <section class="page" id="page-goals" data-page-panel="goals">
+        <header class="page-header goals-page-header">
+          <div><p class="eyebrow">Persoonlijke ontwikkeling</p><h1 id="goalsPageTitle">Mijn Doelen</h1><p class="page-intro" id="goalsPageIntro">Persoonlijke doelen en sprintdoelen op één plek.</p></div>
+        </header>
+
+        <section class="client-goals-view client-only" id="clientGoalsView">
+          <article class="goals-column-panel personal-goals-panel">
+            <div class="goals-column-heading"><div><p class="eyebrow">Belangrijkste richting</p><h2>Persoonlijke doelen</h2></div><span class="goal-priority-badge">Persoonlijk</span></div>
+            <div class="goal-card-list" id="clientPersonalGoals"></div>
+          </article>
+          <article class="goals-column-panel sprint-goals-panel">
+            <div class="goals-column-heading"><div><p class="eyebrow">Korte termijn</p><h2>Sprintdoelen</h2></div><button class="secondary-button" id="addSprintGoalInline" type="button">+ Sprintdoel</button></div>
+            <p class="goals-helper">Kleine, concrete doelen die je zelf kunt toevoegen voor de komende periode.</p>
+            <div class="goal-card-list" id="clientSprintGoals"></div>
+          </article>
+        </section>
+
+        <section class="staff-goals-view staff-only" id="staffGoalsView">
+          <aside class="panel goals-client-browser">
+            <div class="goals-browser-controls">
+              <label>Zoeken<input id="goalsClientSearch" type="search" placeholder="Zoek mediënt…" /></label>
+              <label>Afdeling<select id="goalsDepartmentFilter"><option value="all">Alle afdelingen</option><option value="multimedia">Multimedia</option><option value="it">IT</option></select></label>
+            </div>
+            <div id="goalsSearchResults" class="goals-search-results hidden" aria-label="Zoekresultaten mediënten"></div>
+          </aside>
+          <section class="goals-client-detail">
+            <header class="panel goals-client-detail-header"><div><p class="eyebrow">Doelen van</p><h2 id="goalsSelectedClient">Selecteer een mediënt</h2><p id="goalsSelectedClientMeta">Persoonlijke en sprintdoelen</p></div><button class="primary-button" id="addGoalForSelectedClient" type="button">+ Doel toevoegen</button></header>
+            <div class="panel goals-selection-prompt" id="staffGoalsEmpty" role="status">
+              <p>Zoek hierboven een mediënt en selecteer deze om de doelen te bekijken.</p>
+            </div>
+            <div class="staff-goals-columns hidden" id="staffGoalsColumns">
+              <article class="goals-column-panel personal-goals-panel"><div class="goals-column-heading"><div><p class="eyebrow">Belangrijkste richting</p><h2>Persoonlijke doelen</h2></div><span class="goal-priority-badge">Persoonlijk</span></div><div class="goal-card-list" id="staffPersonalGoals"></div></article>
+              <article class="goals-column-panel sprint-goals-panel"><div class="goals-column-heading"><div><p class="eyebrow">Korte termijn</p><h2>Sprintdoelen</h2></div></div><div class="goal-card-list" id="staffSprintGoals"></div></article>
+            </div>
+          </section>
+        </section>
+      </section>
+
+      <section class="page" id="page-agenda" data-page-panel="agenda">
+        <header class="page-header">
+          <div><p class="eyebrow">Organisatie</p><h1>Kalender</h1></div>
+          <button class="primary-button" id="addAgendaItemButton">Nieuwe afspraak</button>
+        </header>
+
+        <div class="agenda-workspace">
+          <article class="panel agenda-overview-panel">
+            <div class="panel-heading-row"><div><p class="eyebrow">Vooruitblik</p><h2>Aankomende planning</h2></div></div>
+            <div class="agenda-list detailed" id="upcomingAgendaList"></div>
+          </article>
+
+          <article class="panel calendar-panel">
+            <div class="view-tabs" aria-label="Agendaweergave"><button data-agenda-view="day">Dag</button><button data-agenda-view="week">Week</button><button class="active" data-agenda-view="month">Maand</button></div>
+            <div class="calendar-toolbar">
+              <button class="icon-button" id="calendarPrevButton" aria-label="Vorige maand">‹</button>
+              <div><p class="eyebrow" id="calendarPeriodType">Maandoverzicht</p><h2 id="calendarMonthLabel">Juli 2026</h2></div>
+              <button class="icon-button" id="calendarNextButton" aria-label="Volgende maand">›</button>
+            </div>
+            <div class="calendar-large interactive-calendar" id="calendarLarge"></div>
+            <p class="calendar-help" id="calendarHelp">Klik op een dag om deze te bekijken. Dubbelklik om direct iets in te plannen.</p>
+          </article>
+        </div>
+
+        <details class="panel year-overview-panel">
+          <summary>
+          <div class="panel-heading-row">
+            <div><p class="eyebrow">Lange termijn</p><h2>Juli 2026 tot en met december 2027</h2></div>
+            <span class="range-badge">18 maanden</span>
+          </div>
+          </summary>
+          <div class="year-calendar-grid" id="yearCalendarGrid"></div>
+        </details>
+      </section>
+
+      <section class="page" id="page-tasks" data-page-panel="tasks"><div class="pb2-hub-embed"><iframe id="pb2Frame" title="Planbord 2.0" src="planbord2/index.html" loading="eager"></iframe></div>
+        <header class="page-header">
+          <div><p class="eyebrow" id="tasksPageEyebrow">Persoonlijk werkbord</p><h1 id="tasksPageTitle">Planbord</h1><p class="page-intro" id="tasksPageIntro">Beheer je taken in Te doen, Mee bezig, Hulp/overleg nodig en Klaar.</p></div>
+          <div class="task-page-actions"><button class="secondary-button client-only task-archive-toggle" type="button" id="taskArchiveButton" aria-expanded="false" aria-controls="taskArchivePanel"><svg class="lucide-icon" aria-hidden="true"><use href="#icon-archive"></use></svg><span id="taskArchiveButtonLabel">Archief tonen (0)</span><svg class="lucide-icon task-archive-chevron" aria-hidden="true"><use href="#icon-chevron-down"></use></svg></button><button class="primary-button" id="addTaskTopButton">Nieuwe taak</button></div>
+        </header>
+        <div class="staff-signals-list" id="staffSignalsList"></div>
+        <article class="panel staff-task-planner" id="staffTaskPlanner">
+          <div class="staff-planner-toolbar">
+            <label class="staff-planner-viewer-field" for="staffPlannerViewer">
+              <span>Planning bekijken</span>
+              <select id="staffPlannerViewer" aria-label="Planning van begeleider bekijken"></select>
+            </label>
+            <div class="staff-planner-week-nav" aria-label="Week kiezen">
+              <button type="button" class="icon-button" id="staffPlannerPrevWeek" aria-label="Vorige week">‹</button>
+              <button type="button" class="secondary-button staff-planner-today-button" id="staffPlannerTodayWeek">Vandaag</button>
+              <strong id="staffPlannerWeekLabel">Deze week</strong>
+              <button type="button" class="icon-button" id="staffPlannerNextWeek" aria-label="Volgende week">›</button>
+            </div>
+            <span class="staff-planner-view-mode" id="staffPlannerViewMode">Eigen planning · bewerkbaar</span>
+          </div>
+          <div class="staff-planner-continue-bar hidden" id="staffPlannerContinueBar" role="status">
+            <span><strong id="staffPlannerContinueTitle">Taak doorplannen</strong><small>Klik en sleep het volgende tijdsblok in de planner. Horizontaal slepen plant meteen meerdere dagen in.</small></span>
+            <button type="button" class="ghost-button" id="staffPlannerCancelContinue">Annuleren</button>
+          </div>
+          <div class="staff-week-planner-scroll">
+            <div class="staff-week-planner-grid" id="staffWeekPlannerGrid" aria-label="Weekplanning maandag tot en met vrijdag"></div>
+          </div>
+        </article>
+        <article class="panel client-task-board"><div class="kanban-board full" id="tasksPageKanban"></div></article>
+        <section class="panel task-sprint-goals-panel client-only" id="taskSprintGoalsPanel" aria-label="Sprintdoelen uit Mijn Doelen">
+          <header class="task-sprint-goals-header"><div><p class="eyebrow">Vanuit Mijn Doelen</p><h2>Sprintdoelen</h2></div></header>
+          <div class="task-sprint-goals-list" id="taskSprintGoalsList"></div>
+        </section>
+        <section class="panel task-archive-panel hidden" id="taskArchivePanel" aria-label="Archief afgeronde taken">
+          <header class="task-archive-header"><div><p class="eyebrow">Afgeronde taken</p><h2>Archief</h2><p>Na 30 dagen worden afgeronde taken hier bewaard.</p></div><button class="secondary-button task-archive-close" type="button" id="taskArchiveCloseButton"><svg class="lucide-icon" aria-hidden="true"><use href="#icon-chevron-down"></use></svg>Archief sluiten</button></header>
+          <div id="taskArchiveList" class="task-archive-list"></div>
+        </section>
+      </section>
+
+      <section class="page" id="page-rooms" data-page-panel="rooms">
+        <header class="page-header room-page-header">
+          <div><p class="eyebrow">Weekindeling</p><h1>Rooster</h1><p class="page-intro" id="rosterPageIntro">Bekijk waar je deze week bent ingepland.</p></div>
+        </header>
+        <section class="client-roster-view client-only">
+          <article class="panel client-roster-panel">
+            <div class="panel-heading-row"><div><p class="eyebrow">Mijn week</p><h2 id="clientRosterHeading">Rooster</h2></div><span class="range-badge" id="clientRosterDepartment">MM</span></div>
+            <div class="client-roster-grid" id="clientRosterGrid"></div>
+          </article>
+          <article class="panel guidance-roster-panel">
+            <div class="panel-heading-row"><div><p class="eyebrow">Ingeplande begeleiding</p><h2>Begeleidingsrooster</h2></div></div>
+            <div class="guidance-week-grid" id="guidanceWeekGrid"></div>
+          </article>
+        </section>
+        <section class="staff-roster-view staff-only">
+          <section class="room-control-bar panel">
+            <div class="room-department-tabs" role="tablist" aria-label="Afdeling kiezen">
+              <button data-room-department="multimedia" role="tab">Multimedia</button>
+              <button data-room-department="it" role="tab">IT</button>
+            </div>
+            <nav class="room-location-tabs" id="roomLocationTabs" aria-label="Lokaal kiezen"></nav>
+            <label class="room-search-control"><span>Zoek mediënt</span><input id="roomSearch" type="search" placeholder="Naam zoeken…" autocomplete="off" /></label>
+            <p class="room-search-hint">Weekoverzicht. Gebruik Ctrl/Cmd + klik om meerdere werkplekken te selecteren en in één keer in te stellen.</p>
+          </section>
+          <section id="roomSearchResult"></section>
+          <section class="room-schedule-surface panel" id="roomGrid"></section>
+          <details class="panel room-audit-panel">
+            <summary><strong>Recente roosterwijzigingen</strong></summary>
+            <div class="room-audit-list" id="roomAuditList"></div>
+          </details>
+        </section>
+      </section>
+
+      <section class="page staff-only staff-sprintreviews-only" id="page-sprintreviews" data-page-panel="sprintreviews">
+        <header class="page-header">
+          <div><p class="eyebrow">Multimedia</p><h1>Sprintreviews</h1><p class="page-intro">In één oogopslag zien welke mediënten up-to-date zijn en wie aandacht nodig heeft.</p></div>
+        </header>
+        <section class="sprintreview-legend panel" aria-label="Sprintreview statussen">
+          <span class="sprintreview-legend-item status-green"><i></i>Sprint up to date</span>
+          <span class="sprintreview-legend-item status-yellow"><i></i>Sprint nodig</span>
+          <span class="sprintreview-legend-item status-red"><i></i>Sprint zo snel mogelijk</span>
+          <span class="sprintreview-legend-item status-purple"><i></i>Sprint niet mogelijk</span>
+          <span class="sprintreview-legend-item status-blue"><i></i>In de gaten houden</span>
+        </section>
+        <section class="sprintreview-board" id="sprintReviewBoard" aria-label="Sprintreviews per begeleider"></section>
+      </section>
+
+      <section class="page" id="page-settings" data-page-panel="settings">
+        <header class="page-header"><div><p class="eyebrow">Voorkeuren</p><h1>Instellingen</h1></div></header>
+        <article class="panel settings-panel">
+          <label class="setting-row client-dashboard-setting"><span><strong>Dashboardindeling</strong><small id="dashboardLayoutHelp">De vaste basislayout. Aanpassingen worden automatisch als Custom opgeslagen.</small></span><select id="dashboardPreset"><option value="standard">Standaard</option><option value="custom">Custom</option></select></label>
+          <label class="setting-row"><span><strong>Weergave</strong><small>Kies de lichte of donkere huisstijl van Spectrum HUB.</small></span><select id="themeModeSelect"><option value="light">Licht</option><option value="dark">Donker</option></select></label>
+          <label class="setting-row"><span><strong>Animaties verminderen</strong><small>Beperk beweging tijdens verslepen en openen.</small></span><input type="checkbox" id="motionToggle" /></label>
+          <div class="settings-actions"><button class="secondary-button" id="exportDemoButton">Demo exporteren</button><label class="secondary-button import-button">Demo importeren<input id="importDemoInput" type="file" accept="application/json" /></label></div>
+          <button class="danger-button" id="settingsResetButton">Alle demo-gegevens resetten</button>
+        </article>
+        <article class="panel staff-only account-management-card">
+          <div class="panel-heading-row"><div><p class="eyebrow">Beheer</p><h2>Accounts</h2><p class="page-intro">Maak een nieuw account aan of stel een nieuw wachtwoord in.</p></div><button class="primary-button" type="button" id="openCreateAccountButton">+ Nieuw account</button></div>
+          <div class="account-management-list" id="accountManagementList"></div>
+        </article>
+
+      </section>
+
+      <section class="page" id="page-profile" data-page-panel="profile">
+        <header class="page-header"><div><p class="eyebrow" id="profilePageEyebrow">Persoonlijke omgeving</p><h1 id="profilePageHeading">Mijn instellingen</h1><p class="page-intro" id="profilePageIntro">Alleen de instellingen die voor jou relevant zijn.</p></div></header>
+        <section class="profile-page-grid">
+          <article class="panel profile-overview-card">
+            <div class="profile-hero-avatar" id="profilePageAvatar" aria-hidden="true">M</div>
+            <div><p class="eyebrow" id="profileOverviewEyebrow">Persoonlijk</p><div class="profile-name-line"><h2 id="profilePageName">Maarten</h2><span class="profile-name-status staff-only" title="Aanwezig"></span></div><p id="profilePageRole">Multimedia-mediënt</p></div>
+            <dl class="profile-facts" id="profileFacts"></dl>
+          </article>
+          <article class="panel profile-guidance-card client-only">
+            <p class="eyebrow" id="profileGuidanceEyebrow">Mijn begeleiding</p>
+            <h2 id="profileGuidanceTitle">Vaste aanspreekpunten</h2>
+            <div class="profile-guidance-list" id="profileGuidanceList"></div>
+          </article>
+          <article class="panel profile-preferences-card profile-schedule-card client-only">
+            <div><p class="eyebrow">Rooster</p><h2>Ochtend &amp; middag</h2><p class="page-intro">Dit rooster komt rechtstreeks uit de weekplanning en wordt door begeleiding beheerd.</p></div>
+            <div class="weekday-options readonly-weekdays client-profile-roster" id="clientProfileWeekdays"></div>
+            <p class="profile-help-note">Klopt dit rooster niet? Bespreek dit dan met je begeleider.</p>
+          </article>
+          <form class="profile-workweek-card staff-only" id="profileForm">
+            <section class="panel profile-section-card profile-schedule-section">
+              <div class="profile-section-heading">
+                <span class="profile-section-icon"><svg class="lucide-icon" aria-hidden="true"><use href="#icon-calendar-days"></use></svg></span>
+                <div><h2>Mijn werkrooster</h2><p>Stel je werkdagen en werktijden in.</p></div>
+              </div>
+              <fieldset class="weekday-fieldset" id="profileWeekdayFieldset">
+                <legend class="visually-hidden">Mijn aanwezigheid per dagdeel</legend>
+                <div class="weekday-options" id="profileWeekdays"></div>
+                <small class="weekday-help" id="profileWeekdayHelp"></small>
+              </fieldset>
+            </section>
+            <section class="panel profile-section-card profile-rooms-section">
+              <div class="profile-section-heading">
+                <span class="profile-section-icon"><svg class="lucide-icon" aria-hidden="true"><use href="#icon-building-2"></use></svg></span>
+                <div><h2>Mijn lokalen</h2><p>Selecteer welke lokalen je wilt volgen.</p></div>
+              </div>
+              <fieldset class="weekday-fieldset staff-linked-rooms-fieldset" id="profileLinkedRoomsFieldset">
+                <legend class="visually-hidden">Mijn lokalen</legend>
+                <div class="staff-local-choices" id="profileLinkedRooms"></div>
+              </fieldset>
+            </section>
+            <section class="panel profile-section-card profile-reminders-section">
+              <div class="profile-section-heading">
+                <span class="profile-section-icon"><svg class="lucide-icon" aria-hidden="true"><use href="#icon-bell"></use></svg></span>
+                <div><h2>Herinneringen</h2><p>Stel in hoe je herinneringen wilt ontvangen.</p></div>
+              </div>
+              <div class="profile-reminders-fields">
+                <label>Ontvang herinneringen via
+                  <select id="profileContactPreference"><option value="hub">Alleen in Spectrum Hub</option><option value="email">E-mail</option><option value="both">Spectrum Hub en e-mail</option></select>
+                </label>
+                <label>E-mailadres voor herinneringen
+                  <input type="email" id="profileEmail" placeholder="naam@voorbeeld.nl" />
+                </label>
+              </div>
+              <div class="profile-save-actions"><button class="primary-button" type="submit">Wijzigingen opslaan</button></div>
+            </section>
+          </form>
+          <form class="panel profile-preferences-card profile-password-card" id="profilePasswordForm">
+            <div class="profile-section-heading">
+              <span class="profile-section-icon"><svg class="lucide-icon" aria-hidden="true"><use href="#icon-lock-keyhole"></use></svg></span>
+              <div><h2>Account &amp; beveiliging</h2><p>Wijzig je wachtwoord.</p></div>
+            </div>
+            <div class="profile-password-fields">
+              <label>Nieuw wachtwoord<input type="password" id="profileNewPassword" autocomplete="new-password" minlength="4" required /></label>
+              <label>Herhaal wachtwoord<input type="password" id="profileConfirmPassword" autocomplete="new-password" minlength="4" required /></label>
+            </div>
+            <div class="form-actions"><button class="primary-button" type="submit">Wachtwoord opslaan</button></div>
+          </form>
+        </section>
+      </section>
+    </main>
+
+    <aside class="right-rail" id="rightRail">
+      <div class="right-rail-widget-zone" id="rightRailWidgetZone" aria-label="Aanpasbare widgets in rechterkolom">
+      <article class="rail-card client-only" id="ownWorkspaceRail" data-rail-item-id="workspace">
+        <header><h2>Mijn werkplek</h2><div class="rail-card-actions"><button class="icon-button rail-drag-hint" type="button" aria-label="Mijn werkplek verslepen" title="Versleep widget">⋮⋮</button><span>⌂</span></div></header>
+        <div id="ownWorkspaceSummary"></div>
+      </article>
+      <article class="rail-card" data-rail-item-id="agenda">
+        <header><h2>Upcoming</h2><div class="rail-card-actions"><button class="icon-button rail-drag-hint" type="button" aria-label="Upcoming verslepen" title="Versleep widget">⋮⋮</button><button class="icon-button" data-open-page="agenda">→</button></div></header>
+        <p class="eyebrow">Eerstvolgende afspraken</p>
+        <div class="agenda-list" id="railAgenda"></div>
+      </article>
+      <article class="rail-card closures-card" data-rail-item-id="closures">
+        <header>
+          <h2>Spectrum dicht</h2>
+          <div class="rail-card-actions">
+            <button class="icon-button rail-drag-hint" type="button" aria-label="Spectrum dicht verslepen" title="Versleep widget">⋮⋮</button>
+          </div>
+        </header>
+        <p class="eyebrow">Vakantie &amp; feestdagen</p>
+        <div class="closure-list" id="railClosures"></div>
+      </article>
+      <article class="rail-card calendar-card" data-rail-item-id="calendar">
+        <header class="rail-calendar-header">
+          <h2>Kalender</h2>
+          <div class="rail-calendar-controls">
+            <button class="icon-button rail-drag-hint" type="button" aria-label="Kalender verslepen" title="Versleep widget">⋮⋮</button>
+            <button class="icon-button" id="miniCalendarPrevButton" aria-label="Vorige maand">‹</button>
+            <span id="miniCalendarLabel">Juli 2026</span>
+            <button class="icon-button" id="miniCalendarNextButton" aria-label="Volgende maand">›</button>
+          </div>
+        </header>
+        <div class="mini-calendar interactive-calendar" id="miniCalendar"></div>
+        <button class="text-button" id="quickAddAgendaButton">+ Nieuwe afspraak</button>
+      </article>
+      </div>
+    </aside>
+  </div>
+
+
+  <dialog id="notificationsDialog" class="app-dialog small-dialog notifications-dialog">
+    <div class="notifications-dialog-inner">
+      <div class="dialog-header">
+        <div><p class="eyebrow">Voor jou</p><h2>Meldingen</h2></div>
+        <button class="icon-button" id="closeNotificationsDialog" type="button" aria-label="Sluiten">&times;</button>
+      </div>
+      <p class="dialog-intro">Nieuwe berichten en afspraken die voor jou relevant zijn.</p>
+      <div class="notification-list" id="notificationsList"></div>
+    </div>
+  </dialog>
+
+  <dialog id="loginMessageDialog" class="app-dialog small-dialog login-message-dialog">
+    <div class="login-message-dialog-inner">
+      <div class="login-message-heading">
+        <div><p class="eyebrow" id="loginMessageEyebrow">Mededeling</p><h2 id="loginMessageTitle">Mededeling</h2></div>
+        <span class="login-message-counter" id="loginMessageCounter"></span>
+      </div>
+      <div class="login-message-meta" id="loginMessageMeta"></div>
+      <div class="login-message-text rich-text-content" id="loginMessageText"></div>
+      <div id="loginMessageEvent" class="login-message-event hidden"></div>
+      <div class="login-message-actions">
+        <button class="ghost-button" id="loginMessageLaterButton" type="button">Herinner me later</button>
+        <button class="primary-button" id="loginMessageReadButton" type="button">Mededeling gelezen</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="arrivalDialog" class="app-dialog arrival-dialog">
+    <div class="arrival-content">
+      <p class="eyebrow">Welkom terug</p><h2 id="arrivalTitle">Goedemorgen, Maarten</h2>
+      <p>Ben je vandaag bij Spectrum?</p>
+      <button class="primary-button large" id="arrivalClockIn">Ja, ik wil inklokken</button>
+      <button class="ghost-button" id="arrivalContinue">Doorgaan zonder inklokken</button>
+    </div>
+  </dialog>
+
+  <dialog id="taskDialog" class="app-dialog task-dialog">
+    <section id="taskDetailView" class="task-detail-view hidden" aria-label="Taakgegevens">
+      <div class="dialog-header">
+        <div><p class="eyebrow">Planbord</p><h2 id="taskDetailTitle">Taak</h2></div>
+        <button type="button" class="icon-button" aria-label="Sluiten">×</button>
+      </div>
+      <div class="task-detail-status" id="taskDetailStatus"></div>
+      <div class="task-detail-meta" id="taskDetailMeta"></div>
+      <div class="task-detail-description rich-text-content" id="taskDetailDescription"></div>
+      <section class="task-detail-checklist hidden" id="taskDetailChecklistSection">
+        <div class="task-detail-section-heading"><strong>Checklist</strong><span id="taskDetailProgress"></span></div>
+        <div id="taskDetailChecklist"></div>
+      </section>
+      <p class="task-detail-locked-hint hidden" id="taskDetailLockedHint">Deze taak is afgerond en kan niet meer worden aangepast.</p>
+      <div class="task-detail-actions">
+        <button type="button" class="ghost-button" id="taskDetailClose">Sluiten</button>
+        <button type="button" class="primary-button" id="taskDetailEdit">Bewerken</button>
+      </div>
+    </section>
+    <form method="dialog" id="taskForm">
+      <div class="dialog-header">
+        <div><p class="eyebrow">Planbord</p><h2 id="taskDialogTitle">Nieuwe taak</h2></div>
+        <button type="button" class="icon-button" aria-label="Sluiten">×</button>
+      </div>
+      <input type="hidden" id="taskId" />
+      <label>Titel<input id="taskTitle" required /></label>
+      <div class="task-meta-fields">
+        <label>Label<select id="taskLabel"><option>Multimedia</option><option>IT</option><option>Persoonlijk</option></select></label>
+        <label>Deadline<input id="taskDue" type="date" /></label>
+      </div>
+      <label>Omschrijving<textarea id="taskDescription" rows="3"></textarea></label>
+      <details class="task-form-section" id="taskChecklistSection">
+        <summary><span>Checklist <small id="taskChecklistHint">Optioneel</small></span><span class="task-form-chevron" aria-hidden="true">⌄</span></summary>
+        <div class="task-form-section-inner">
+          <p class="task-form-help">Eén onderdeel per regel</p>
+          <textarea id="taskChecklist" rows="4" placeholder="Tekst controleren&#10;Afbeeldingen exporteren"></textarea>
+        </div>
+      </details>
+      <details class="task-form-section" id="taskExtraSection">
+        <summary><span>Extra opties</span><span class="task-form-chevron" aria-hidden="true">⌄</span></summary>
+        <div class="task-form-section-inner">
+          <label id="taskColumnField">Status<select id="taskColumn"><option value="todo">Te doen</option><option value="doing">Mee bezig</option><option value="help">Hulp nodig</option><option value="done">Klaar</option></select></label>
+          <label class="active-task-option"><input id="taskActive" type="checkbox" /> Hier werk ik nu aan</label>
+        </div>
+      </details>
+      <div class="dialog-actions">
+        <button type="button" class="danger-button hidden" id="deleteTaskButton">Verwijderen</button>
+        <span></span>
+        <button type="button" class="ghost-button" id="taskEditCancel">Annuleren</button>
+        <button type="submit" value="default" class="primary-button">Opslaan</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="staffPlannerTaskDialog" class="app-dialog">
+    <form method="dialog" id="staffPlannerTaskForm">
+      <div class="dialog-header">
+        <div><p class="eyebrow">Weekplanning</p><h2 id="staffPlannerTaskDialogTitle">Nieuwe taak</h2></div>
+        <button class="icon-button" value="cancel" aria-label="Sluiten">×</button>
+      </div>
+      <input type="hidden" id="staffPlannerTaskId" />
+      <label>Titel<input id="staffPlannerTaskTitle" required placeholder="Bijvoorbeeld: sprintreview voorbereiden" /></label>
+      <div class="form-grid three-fields">
+        <label>Datum
+          <input id="staffPlannerTaskDate" type="date" min="2026-07-01" max="2027-12-31" required />
+          <input id="staffPlannerTaskDay" type="hidden" value="0" />
+        </label>
+        <label>Start<select id="staffPlannerTaskStart" required></select></label>
+        <label>Einde<select id="staffPlannerTaskEnd" required></select></label>
+      </div>
+      <div class="form-grid planner-recurrence-grid">
+        <label>Herhalen
+          <select id="staffPlannerTaskRecurrence">
+            <option value="none">Niet herhalen</option>
+            <option value="weekly">Wekelijks</option>
+            <option value="biweekly">Elke 2 weken</option>
+            <option value="fourweekly">Elke 4 weken</option>
+            <option value="monthly">Maandelijks</option>
+          </select>
+        </label>
+        <label id="staffPlannerTaskRecurrenceEndWrap">Einddatum
+          <input id="staffPlannerTaskRecurrenceEnd" type="date" max="2027-12-31" />
+        </label>
+      </div>
+      <p class="form-hint planner-recurrence-hint" id="staffPlannerTaskRecurrenceHint">Zonder einddatum loopt de herhaling door tot het einde van de prototypekalender.</p>
+      <fieldset class="planner-color-fieldset">
+        <legend>Kleur</legend>
+        <div class="planner-color-options" aria-label="Taakkleur kiezen">
+          <label title="Blauw"><input type="radio" name="staffPlannerTaskColor" value="blue" checked><span style="--swatch:#61a5e4"></span><em>Blauw</em></label>
+          <label title="Groen"><input type="radio" name="staffPlannerTaskColor" value="green"><span style="--swatch:#62aa78"></span><em>Groen</em></label>
+          <label title="Turquoise"><input type="radio" name="staffPlannerTaskColor" value="teal"><span style="--swatch:#58aaa5"></span><em>Turquoise</em></label>
+          <label title="Geel"><input type="radio" name="staffPlannerTaskColor" value="yellow"><span style="--swatch:#e2b34f"></span><em>Geel</em></label>
+          <label title="Oranje"><input type="radio" name="staffPlannerTaskColor" value="orange"><span style="--swatch:#e59651"></span><em>Oranje</em></label>
+          <label title="Paars"><input type="radio" name="staffPlannerTaskColor" value="purple"><span style="--swatch:#8d72c7"></span><em>Paars</em></label>
+          <label title="Roze"><input type="radio" name="staffPlannerTaskColor" value="pink"><span style="--swatch:#c87598"></span><em>Roze</em></label>
+          <label title="Grijs"><input type="radio" name="staffPlannerTaskColor" value="gray"><span style="--swatch:#8092a0"></span><em>Grijs</em></label>
+        </div>
+      </fieldset>
+      <div class="planner-series-scope hidden" id="staffPlannerSeriesScopeWrap">
+        <label>Wijziging toepassen op
+          <select id="staffPlannerSeriesScope">
+            <option value="this">Alleen deze taak</option>
+            <option value="future">Deze en toekomstige taken</option>
+            <option value="all">Hele reeks</option>
+          </select>
+        </label>
+        <p class="form-hint">Afvinken blijft altijd per afzonderlijke weektaak.</p>
+      </div>
+      <label class="planner-continue-option" id="staffPlannerContinueOption">
+        <input type="checkbox" id="staffPlannerTaskContinue" />
+        <span><strong>Taak doorplannen</strong><small>Na opslaan koppel je met je eerstvolgende klik/sleep één of meerdere extra tijdsblokken aan deze taak.</small></span>
+      </label>
+      <fieldset class="planner-assignee-fieldset">
+        <legend>Begeleiders</legend>
+        <p class="form-hint">Koppel één of meerdere begeleiders. De taak verschijnt bij iedereen in dezelfde weekplanning.</p>
+        <details class="planner-assignee-dropdown" id="staffPlannerAssigneeDropdown">
+          <summary><span id="staffPlannerAssigneeSummary">Kies begeleiders</span><span class="planner-assignee-chevron" aria-hidden="true">⌄</span></summary>
+          <div class="planner-assignee-options" id="staffPlannerTaskAssignees"></div>
+        </details>
+      </fieldset>
+      <label>Omschrijving<textarea id="staffPlannerTaskDescription" rows="4" placeholder="Optionele extra informatie"></textarea></label>
+      <p class="form-hint hidden" id="staffPlannerTaskError"></p>
+      <div class="dialog-actions">
+        <button type="button" class="danger-button hidden" id="deleteStaffPlannerTaskButton">Verwijderen</button>
+        <span></span>
+        <button value="cancel" class="ghost-button">Annuleren</button>
+        <button type="submit" value="default" class="primary-button">Opslaan</button>
+      </div>
+    </form>
+  </dialog>
+
+
+  <dialog id="calendarDayDialog" class="app-dialog small-dialog calendar-day-dialog">
+    <div class="calendar-day-dialog-inner">
+      <div class="dialog-header">
+        <div><p class="eyebrow">Kalender</p><h2 id="calendarDayDialogTitle">Dagoverzicht</h2></div>
+        <button class="icon-button" id="closeCalendarDayDialog" type="button" aria-label="Sluiten">×</button>
+      </div>
+      <div class="calendar-day-dialog-list" id="calendarDayDialogList"></div>
+      <div class="dialog-actions calendar-day-dialog-actions">
+        <span></span>
+        <button class="secondary-button" id="calendarDayAddButton" type="button">+ Nieuwe afspraak</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="agendaDialog" class="app-dialog">
+    <form method="dialog" id="agendaForm">
+      <div class="dialog-header">
+        <div><p class="eyebrow">Agenda</p><h2 id="agendaDialogTitle">Nieuwe afspraak</h2></div>
+        <button class="icon-button" value="cancel" aria-label="Sluiten">×</button>
+      </div>
+      <input type="hidden" id="agendaId" />
+      <input type="hidden" id="agendaClosureId" />
+      <input type="hidden" id="agendaClosureType" value="Spectrum dicht" />
+      <label>Titel<input id="agendaTitle" required placeholder="Bijvoorbeeld: feedbackmoment website" /></label>
+      <label>Soort<select id="agendaCategory"><option value="appointment">Afspraak</option><option value="personal">Persoonlijk</option><option value="reminder">Herinnering</option><option value="vacation" id="agendaStaffVacationOption">Vakantie</option><option value="closure" id="agendaVacationOption">Spectrum dicht</option></select></label>
+      <div class="form-grid agenda-date-range">
+        <label>Van<input id="agendaDate" type="date" min="2026-07-01" max="2027-12-31" required /></label>
+        <label>Tot en met<input id="agendaEndDate" type="date" min="2026-07-01" max="2028-01-31" required /></label>
+      </div>
+      <div class="form-grid" id="agendaTimesRow">
+        <label>Starttijd<input id="agendaStart" type="time" required /></label>
+        <label>Eindtijd<input id="agendaEnd" type="time" /></label>
+      </div>
+      <p class="form-hint hidden" id="agendaClosureHint">Spectrum is gedurende deze hele periode gesloten. De kalender, Upcoming en de widget ‘Spectrum dicht’ worden automatisch bijgewerkt.</p>
+      <label>Omschrijving<textarea id="agendaDescription" rows="4" placeholder="Optionele extra informatie"></textarea></label>
+      <div class="dialog-actions">
+        <button type="button" class="danger-button hidden" id="deleteAgendaButton">Verwijderen</button>
+        <span></span>
+        <button value="cancel" class="ghost-button">Annuleren</button>
+        <button type="submit" value="default" class="primary-button">Opslaan</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="appointmentResponseDialog" class="app-dialog small-dialog appointment-response-dialog">
+    <div class="appointment-response-inner">
+      <input type="hidden" id="appointmentResponseId" />
+      <div class="dialog-header">
+        <div><p class="eyebrow">Afspraakvoorstel</p><h2 id="appointmentResponseTitle">Afspraak</h2></div>
+        <button class="icon-button" id="closeAppointmentResponseDialog" type="button" aria-label="Sluiten">&times;</button>
+      </div>
+      <p class="appointment-response-date" id="appointmentResponseDate"></p>
+      <div class="dialog-intro rich-text-content" id="appointmentResponseDescription"></div>
+      <div class="appointment-planner" id="appointmentResponsePlanner"></div>
+      <div class="appointment-current-response" id="appointmentCurrentResponse"></div>
+      <div class="appointment-response-actions">
+        <button class="ghost-button" id="appointmentRespondLater" type="button">Later beslissen</button>
+        <button class="secondary-button decline" id="appointmentDecline" type="button">Weigeren</button>
+        <button class="primary-button" id="appointmentAccept" type="button">Accepteren</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="clockOutDialog" class="app-dialog">
+    <form method="dialog" id="clockOutForm">
+      <div class="dialog-header">
+        <div><p class="eyebrow">Dag afsluiten</p><h2>Uitklokken</h2></div>
+        <button class="icon-button" value="cancel" aria-label="Sluiten">×</button>
+      </div>
+      <p class="dialog-intro">Schrijf kort op wat je vandaag hebt gedaan. De taken waaraan je werkte zijn alvast toegevoegd.</p>
+      <fieldset class="mood-checkout">
+        <legend>Hoe ga je de dag uit?</legend>
+        <div class="mood-picker" id="clockOutMoodPicker" role="radiogroup" aria-label="Hoe ga je de dag uit?">
+          <button type="button" class="mood-option" data-mood-target="clockOutMood" data-mood="1" aria-label="Heel zwaar" title="Heel zwaar">😞</button>
+          <button type="button" class="mood-option" data-mood-target="clockOutMood" data-mood="2" aria-label="Niet zo goed" title="Niet zo goed">🙁</button>
+          <button type="button" class="mood-option" data-mood-target="clockOutMood" data-mood="3" aria-label="Neutraal" title="Neutraal">😐</button>
+          <button type="button" class="mood-option" data-mood-target="clockOutMood" data-mood="4" aria-label="Goed" title="Goed">🙂</button>
+          <button type="button" class="mood-option" data-mood-target="clockOutMood" data-mood="5" aria-label="Heel goed" title="Heel goed">😄</button>
+        </div>
+        <input id="clockOutMood" type="hidden" value="" />
+      </fieldset>
+      <label>Dagverslag<textarea id="clockOutNote" rows="7" required></textarea></label>
+      <label>Waar wil je de volgende werkdag mee verder?<textarea id="clockOutNext" rows="3"></textarea></label>
+      <div class="suggestion-box" id="activitySuggestion"></div>
+      <div class="dialog-actions">
+        <span></span><span></span>
+        <button value="cancel" class="ghost-button">Annuleren</button>
+        <button type="submit" value="default" class="primary-button">Verslag opslaan &amp; uitklokken</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="widgetDialog" class="app-dialog small-dialog">
+    <form method="dialog">
+      <div class="dialog-header">
+        <div><p class="eyebrow">Persoonlijk dashboard</p><h2>Widgets beheren</h2></div>
+        <button class="icon-button" value="cancel" aria-label="Sluiten">×</button>
+      </div>
+      <p class="dialog-intro">Zet widgets aan of uit. Klik op een widget voor de instellingen.</p>
+      <div class="widget-options" id="widgetOptions"></div>
+      <div class="dialog-actions"><span></span><span></span><button type="button" id="closeWidgetDialog" class="primary-button">Klaar</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="diaryDialog" class="app-dialog">
+    <form method="dialog" id="diaryForm">
+      <div class="dialog-header"><div><p class="eyebrow">Dagboek</p><h2>Nieuwe notitie</h2></div><button class="icon-button" value="cancel">×</button></div>
+      <label>Notitie<textarea id="diaryNote" rows="8" required></textarea></label>
+      <div class="dialog-actions"><span></span><span></span><button value="cancel" class="ghost-button">Annuleren</button><button type="submit" value="default" class="primary-button">Opslaan</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="communicationDialog" class="app-dialog communication-dialog">
+    <form method="dialog" id="communicationForm">
+      <div class="dialog-header"><div><p class="eyebrow">Mededelingen</p><h2 id="communicationDialogTitle">Nieuwe mededeling</h2></div><button class="icon-button" value="cancel" aria-label="Sluiten">×</button></div>
+      <fieldset class="announcement-kind-selector" aria-label="Soort mededeling">
+        <legend>Soort mededeling</legend>
+        <label><input type="radio" name="communicationKind" value="message" checked /><span>Mededeling</span></label>
+        <label><input type="radio" name="communicationKind" value="event" /><span>Evenement</span></label>
+      </fieldset>
+      <label>Titel<input id="communicationTitle" required /></label>
+      <div class="communication-fields">
+        <div class="communication-publishing-row">
+          <label>Doelgroep<select id="communicationAudience"><option value="all">Iedereen</option><option value="multimedia">Multimedia</option><option value="it">IT</option></select></label>
+          <label>Publiceren op<input id="communicationPublishAt" type="datetime-local" required /></label>
+          <label>Publiceren tot<input id="communicationPublishUntil" type="datetime-local" /></label>
+        </div>
+        <label>Bericht<textarea id="communicationMessageText" rows="6" required></textarea></label>
+      <div id="communicationEventDetails" class="announcement-event-details hidden">
+        <p class="announcement-event-hint">Mediënten kunnen zich via HUB aanmelden voor dit evenement.</p>
+        <div class="announcement-event-row">
+          <label>Datum en tijd evenement<input id="communicationEventAt" type="datetime-local" /></label>
+          <label>Locatie<input id="communicationEventLocation" placeholder="Bijvoorbeeld: ontmoetingsruimte" /></label>
+        </div>
+        <div id="communicationEventSignups" class="announcement-event-signups hidden" aria-live="polite"></div>
+      </div>
+
+      </div>
+      <div class="dialog-actions"><span></span><span></span><button value="cancel" class="ghost-button">Annuleren</button><button type="submit" value="default" class="primary-button">Opslaan</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="goalDialog" class="app-dialog goal-dialog">
+    <form method="dialog" id="goalForm">
+      <input type="hidden" id="goalId" />
+      <div class="dialog-header"><div><p class="eyebrow">Doelen</p><h2 id="goalDialogTitle">Nieuw doel</h2></div><button class="icon-button" value="cancel" aria-label="Sluiten">×</button></div>
+      <label class="staff-only" id="goalClientWrap">Mediënt<select id="goalClient"></select></label>
+      <label>Type doel<select id="goalType"><option value="personal">Persoonlijk doel</option><option value="sprint">Sprintdoel</option></select></label>
+      <div class="form-grid goal-title-date-grid">
+        <label>Titel<input id="goalTitle" required /></label>
+        <label>Datum<input id="goalDate" type="date" min="2026-07-01" max="2027-12-31" required /></label>
+      </div>
+      <div class="goal-sprint-fields hidden" id="goalSprintFields">
+        <div class="goal-sprint-fields-heading"><strong>Sprintdoelen (maximaal 5)</strong><p>Vink per regel aan of deze ook als taak in ‘Te doen’ op je planbord komt.</p></div>
+        <div class="goal-sprint-rows" id="goalSprintRows"></div>
+      </div>
+      <div class="goal-editor-field" id="goalDescriptionField">
+        <span class="goal-editor-label">Omschrijving</span>
+        <div class="goal-editor-toolbar" id="goalEditorToolbar" role="toolbar" aria-label="Tekstopmaak">
+          <button type="button" class="goal-format-button" data-goal-command="bold" title="Vet"><span class="goal-toolbar-glyph glyph-bold">B</span></button>
+          <button type="button" class="goal-format-button" data-goal-command="italic" title="Cursief"><span class="goal-toolbar-glyph glyph-italic">I</span></button>
+          <button type="button" class="goal-format-button" data-goal-command="underline" title="Onderstrepen"><span class="goal-toolbar-glyph glyph-underline">U</span></button>
+          <label class="goal-color-control" title="Tekstkleur"><span class="goal-toolbar-glyph">A</span><span class="goal-color-swatch" aria-hidden="true"></span><input id="goalTextColor" type="color" value="#17263b" aria-label="Tekstkleur" /></label>
+          <button type="button" class="goal-format-button goal-list-button" data-goal-command="insertUnorderedList" title="Opsomming"><span class="goal-list-glyph"><b>•</b><i></i><b>•</b><i></i><b>•</b><i></i></span></button>
+          <button type="button" class="goal-format-button goal-list-button" data-goal-command="insertOrderedList" title="Genummerde lijst"><span class="goal-ordered-glyph"><b>1.</b><i></i><b>2.</b><i></i><b>3.</b><i></i></span></button>
+        </div>
+        <div id="goalText" class="goal-rich-editor" contenteditable="true" role="textbox" aria-multiline="true" data-placeholder="Beschrijf het doel…"></div>
+      </div>
+      <div class="dialog-actions"><button type="button" class="danger-button hidden" id="deleteGoalButton">Doel verwijderen</button><span></span><button value="cancel" class="ghost-button">Annuleren</button><button type="submit" value="default" class="primary-button">Doel opslaan</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="messageManageDialog" class="app-dialog">
+    <form method="dialog" id="messageManageForm">
+      <input type="hidden" id="manageMessageId" />
+      <div class="dialog-header"><div><p class="eyebrow">Mededelingen</p><h2 id="messageManageTitle">Nieuwe mededeling</h2></div><button class="icon-button" value="cancel" aria-label="Sluiten">×</button></div>
+      <fieldset class="announcement-kind-selector" aria-label="Soort mededeling">
+        <legend>Soort mededeling</legend>
+        <label><input type="radio" name="manageMessageKind" value="message" checked /><span>Mededeling</span></label>
+        <label><input type="radio" name="manageMessageKind" value="event" /><span>Evenement</span></label>
+      </fieldset>
+      <label>Titel<input id="manageMessageName" required /></label>
+      <div class="communication-publishing-row">
+        <label>Doelgroep<select id="manageMessageAudience"><option value="all">Iedereen</option><option value="multimedia">Multimedia</option><option value="it">IT</option></select></label>
+        <label>Publiceren op<input id="manageMessagePublishAt" type="datetime-local" required /></label>
+        <label>Publiceren tot<input id="manageMessagePublishUntil" type="datetime-local" /></label>
+      </div>
+      <label>Bericht<textarea id="manageMessageText" rows="6" required></textarea></label>
+      <div id="manageMessageEventDetails" class="announcement-event-details hidden">
+        <p class="announcement-event-hint">Mediënten kunnen zich via HUB aanmelden voor dit evenement.</p>
+        <div class="announcement-event-row">
+          <label>Datum en tijd evenement<input id="manageMessageEventAt" type="datetime-local" /></label>
+          <label>Locatie<input id="manageMessageEventLocation" placeholder="Bijvoorbeeld: ontmoetingsruimte" /></label>
+        </div>
+        <div id="manageMessageEventSignups" class="announcement-event-signups hidden" aria-live="polite"></div>
+      </div>
+
+      <div class="dialog-actions"><button type="button" class="danger-button hidden" id="deleteMessageButton">Mededeling verwijderen</button><span></span><button value="cancel" class="ghost-button">Annuleren</button><button type="submit" value="default" class="primary-button">Mededeling opslaan</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="roomAssignmentDialog" class="app-dialog small-dialog">
+    <form method="dialog" id="roomAssignmentForm">
+      <input type="hidden" id="roomAssignmentId" />
+      <div class="dialog-header"><div><p class="eyebrow">Werkplek indelen</p><h2 id="roomAssignmentTitle">Werkplek</h2></div><button class="icon-button" value="cancel" aria-label="Sluiten">×</button></div>
+      <p class="dialog-intro" id="roomAssignmentContext"></p>
+      <input type="hidden" id="roomAssignmentRoom" /><input type="hidden" id="roomAssignmentSeat" /><input type="hidden" id="roomAssignmentDay" />
+      <label>Status<select id="roomAssignmentMode"><option value="client">Mediënt inplannen</option><option value="reserved">Gereserveerd</option><option value="free">Vrij</option></select></label>
+      <label id="roomAssignmentClientWrap"><span id="roomAssignmentClientLabel">Mediënt</span><select id="roomAssignmentClient"></select></label>
+      <input type="hidden" id="roomAssignmentPart" />
+      <details class="room-custom-times" id="roomCustomTimes">
+        <summary>Afwijkende tijden</summary>
+        <div class="room-custom-times-fields">
+          <label class="room-time-option"><input id="roomLaterStartEnabled" type="checkbox" /><span>Later starten</span><input id="roomLaterStartTime" type="time" step="300" disabled /></label>
+          <label class="room-time-option"><input id="roomEarlyLeaveEnabled" type="checkbox" /><span>Eerder weg</span><input id="roomEarlyLeaveTime" type="time" step="300" disabled /></label>
+          <small id="roomStandardTimeHint">Standaardtijd: 09:00–16:30</small>
+        </div>
+      </details>
+      <div class="conflict-message hidden" id="roomConflictMessage"></div>
+      <div class="dialog-actions"><button type="button" class="danger-button hidden" id="deleteRoomAssignmentButton">Plaats vrijmaken</button><span></span><button value="cancel" class="ghost-button">Annuleren</button><button type="submit" value="default" class="primary-button">Plaatsing opslaan</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="clientPlanningDialog" class="app-dialog client-planning-dialog">
+    <form method="dialog" id="clientPlanningForm">
+      <input type="hidden" id="clientPlanningName" />
+      <div class="dialog-header"><div><p class="eyebrow">Mediënt &amp; vast rooster</p><h2 id="clientPlanningTitle">Mediënt</h2><p id="clientPlanningDepartment"></p></div><button class="icon-button" value="cancel" aria-label="Sluiten">×</button></div>
+      <p class="dialog-intro">Pas de vaste Spectrum-dagen en werkplek aan. Dit is hetzelfde rooster als op de Rooster-pagina; wijzigingen zijn direct op beide plekken zichtbaar.</p>
+      <div class="client-planning-days" id="clientPlanningDays"></div>
+      <div class="conflict-message hidden" id="clientPlanningConflict"></div>
+      <div class="dialog-actions"><button type="button" class="secondary-button" id="openClientInRooms">Bekijk in rooster</button><span></span><button value="cancel" class="ghost-button">Annuleren</button><button type="submit" value="default" class="primary-button">Rooster opslaan</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="roomBatchDialog" class="app-dialog small-dialog">
+    <form method="dialog" id="roomBatchForm">
+      <div class="dialog-header"><div><p class="eyebrow">Rooster</p><h2>Geselecteerde vakjes instellen</h2></div><button class="icon-button" value="cancel" aria-label="Sluiten">×</button></div>
+      <p class="dialog-intro" id="roomBatchContext">0 vakjes geselecteerd.</p>
+      <label>Status<select id="roomBatchMode"><option value="client">Mediënt inplannen</option><option value="reserved">Gereserveerd</option><option value="free">Vrijmaken</option></select></label>
+      <label id="roomBatchClientWrap"><span id="roomBatchClientLabel">Mediënt</span><select id="roomBatchClient"></select></label>
+      <div class="conflict-message hidden" id="roomBatchConflictMessage" role="alert"></div>
+      <p class="room-batch-note">De gekozen status wordt op alle geselecteerde vakjes toegepast. Bestaande plaatsingen of reserveringen in die vakjes worden vervangen.</p>
+      <div class="dialog-actions"><span></span><button value="cancel" class="ghost-button">Annuleren</button><button type="submit" value="default" class="primary-button">Selectie instellen</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="clientProfileDialog" class="app-dialog small-dialog">
+    <form id="clientProfileForm" method="dialog">
+      <div class="dialog-header"><div><p class="eyebrow">Mediëntbeheer</p><h2 id="clientProfileDialogTitle">Mediënt toevoegen</h2></div><button class="icon-button" value="cancel" aria-label="Sluiten">×</button></div>
+      <div class="form-grid"><label>Voornaam<input id="clientProfileFirst" required autocomplete="off" /></label><label>Achternaam<input id="clientProfileLast" required autocomplete="off" /></label></div>
+      <label>Afdeling<select id="clientProfileDepartment"><option value="multimedia">Multimedia</option><option value="it">IT</option></select></label>
+      <div class="form-grid"><label>Procesbegeleider (PBer)<select id="clientProfileProcess"></select></label><label>Vakbegeleider (TBer)<select id="clientProfileTrade"></select></label></div>
+      <p class="client-profile-note">Persoonlijke doelen kun je na het opslaan beheren via het tabblad Doelen van deze mediënt.</p>
+      <div class="dialog-actions"><span></span><button class="ghost-button" value="cancel">Annuleren</button><button class="primary-button" type="submit" value="default">Opslaan</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="createAccountDialog" class="app-dialog small-dialog">
+    <form method="dialog" id="createAccountForm">
+      <div class="dialog-header"><div><p class="eyebrow">Accountbeheer</p><h2>Nieuw account</h2></div><button class="icon-button" value="cancel" aria-label="Sluiten">×</button></div>
+      <label>Naam<input id="newAccountName" required /></label>
+      <div class="form-grid"><label>Accounttype<select id="newAccountKind"><option value="client">Mediënt</option><option value="staff">Begeleider</option></select></label><label>Afdeling<select id="newAccountDepartment"><option value="multimedia">Multimedia</option><option value="it">IT</option></select></label></div>
+      <label>Wachtwoord<input type="password" id="newAccountPassword" minlength="4" required autocomplete="new-password" /></label>
+      <label>Herhaal wachtwoord<input type="password" id="newAccountPasswordConfirm" minlength="4" required autocomplete="new-password" /></label>
+      <div class="dialog-actions"><span></span><button value="cancel" class="ghost-button">Annuleren</button><button type="submit" value="default" class="primary-button">Account aanmaken</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="accountPasswordDialog" class="app-dialog small-dialog">
+    <form method="dialog" id="accountPasswordForm">
+      <input type="hidden" id="accountPasswordTarget" />
+      <div class="dialog-header"><div><p class="eyebrow">Accountbeheer</p><h2 id="accountPasswordTitle">Wachtwoord instellen</h2></div><button class="icon-button" value="cancel" aria-label="Sluiten">×</button></div>
+      <label>Nieuw wachtwoord<input type="password" id="accountResetPassword" minlength="4" required autocomplete="new-password" /></label>
+      <label>Herhaal wachtwoord<input type="password" id="accountResetPasswordConfirm" minlength="4" required autocomplete="new-password" /></label>
+      <div class="dialog-actions"><span></span><button value="cancel" class="ghost-button">Annuleren</button><button type="submit" value="default" class="primary-button">Wachtwoord opslaan</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="spectrumTetrisDialog" class="spectrum-tetris-dialog" aria-label="Spectrum Tetris">
+    <div class="spectrum-tetris-shell">
+      <header class="spectrum-tetris-header">
+        <div>
+          <p>SPECTRUM // HIDDEN MODE</p>
+          <h2>Spectrum Tetris</h2>
+        </div>
+        <button class="spectrum-tetris-close" id="spectrumTetrisClose" type="button" aria-label="Tetris sluiten">×</button>
+      </header>
+      <div class="spectrum-tetris-layout">
+        <div class="spectrum-tetris-board-wrap">
+          <canvas id="spectrumTetrisCanvas" width="240" height="480" aria-label="Tetris speelveld"></canvas>
+          <div class="spectrum-tetris-state hidden" id="spectrumTetrisState"></div>
+        </div>
+        <aside class="spectrum-tetris-side">
+          <section class="spectrum-tetris-stat"><span>Score</span><strong id="spectrumTetrisScore">0</strong></section>
+          <section class="spectrum-tetris-stat"><span>Highscore</span><strong id="spectrumTetrisHighScore">0</strong></section>
+          <section class="spectrum-tetris-stat"><span>Level</span><strong id="spectrumTetrisLevel">1</strong></section>
+          <section class="spectrum-tetris-stat"><span>Lines</span><strong id="spectrumTetrisLines">0</strong></section>
+          <section class="spectrum-tetris-next">
+            <span>Volgende</span>
+            <canvas id="spectrumTetrisNext" width="120" height="120" aria-label="Volgende blok"></canvas>
+          </section>
+          <div class="spectrum-tetris-controls">
+            <p><kbd>←</kbd><kbd>→</kbd> bewegen</p>
+            <p><kbd>↑</kbd> draaien</p>
+            <p><kbd>↓</kbd> sneller</p>
+            <p><kbd>Spatie</kbd> drop</p>
+            <p><kbd>P</kbd> pauze</p>
+          </div>
+          <button class="spectrum-tetris-restart" id="spectrumTetrisRestart" type="button">Opnieuw</button>
+        </aside>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="realistic-content.js"></script>
+  <script src="script.js?v=realistische-standaardinhoud"></script>
+<script src="pb2-bridge.js" defer></script>
+</body>
+</html>

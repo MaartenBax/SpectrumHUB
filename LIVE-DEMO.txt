@@ -1,0 +1,8 @@
+Spectrum HUB Live Demo v2.4
+
+Deze variant is bedoeld voor live demonstraties en staat los van de reguliere v2.4 ontwikkelbuild.
+- Geloofwaardige demo-inhoud voor mededelingen en taken.
+- Mediënt-login start steeds met 2 nieuwe items (1 mededeling + 1 evenement).
+- REDACTED label in de sidebar.
+- Dashboard reveal-gordijn met klikbaar koord.
+- Demo-profielkeuze in de sidebar is verborgen.
